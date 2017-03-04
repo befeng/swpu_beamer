@@ -1,0 +1,248 @@
+\documentclass[compress，aspectratio=169,CJK]{beamer}
+
+% See this: http://texblog.net/latex-archive/uncategorized/beamer-warnings/
+\let\Tiny=\tiny
+
+%宏包
+\usepackage[compress,
+    %minimal,
+    %nonav,
+    red,
+    %gold,
+    blue,
+    %numbers,
+    %nologo,
+    %nominilogo,
+    minilogoleft,
+    polyu,
+    comp,
+    forty,
+    %seventyfive,
+]{beamerthemeswpu}
+%中文支持
+\usepackage{CJK}
+
+%使用内部主题
+\usetheme{Luebeck}
+%数学公式宏包
+\usepackage{amsmath,amsthm}
+\usepackage{amsfonts}
+%多列环境
+\usepackage{multicol}
+
+\definecolor{alert}{rgb}{255,0,0}
+\useoutertheme{tree} % tree 可用 infolines，miniframes，shadow，sidebar，smoothbars，smoothtree，split 替换，替换后frame 样式不一样
+%\usecolortheme{default}
+% \logo{\includegraphics[height=0.09\textwidth]{logo.pdf}} %自定义导入logo，建议不要用
+\useinnertheme{rectangles}
+%\usecolortheme[RGB={0,102,204}]{structure}
+%\usecolortheme[RGB={0,102,204}]{structure} %自定义文字样式，RGB取颜色
+\graphicspath{{im/}}         %% 图片路径. 正文图片的存放处，可不要乱放啊
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\raggedright %% 中文对齐
+
+%\def\hilite<#1>{\temporal<#1>{\color{blue!35}}{\color{magenta}}{\color{blue!75}}}
+%% 自定义命令, 源自 beamer_guide. item 逐步显示时, 使已经出现的item、正在显示的item、将要出现的item 呈现不同颜色.
+ \setbeamercolor{alerted text}{fg=red!80!black}
+%==================================参考文献==============================================================
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}  %自定义命令\upcite, 使参考文献引用以上标出现
+\bibliographystyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%重定义字体、字号命令 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\songti}{\CJKfamily{song}}        % 宋体
+\newcommand{\fangsong}{\CJKfamily{fs}}        % 仿宋体
+\newcommand{\kaishu}{\CJKfamily{kai}}         % 楷体
+\newcommand{\heiti}{\CJKfamily{hei}}          % 黑体
+\newcommand{\lishu}{\CJKfamily{li}}           % 隶书
+\newcommand{\youyuang}{\CJKfamily{you}}       % 幼圆
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}      % 字号设置
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    % 字号设置
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   % 字号设置
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    % 字号设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{CJK*}{GBK}{song}
+%%----------------title information------------------------------------
+\title[A \LaTeX ~ Beamer Template of Sothwest Petroleum University]{西南石油大学\LaTeX ~beamer模板}\subtitle{A \LaTeX ~Beamer Template of Sothwest Petroleum University}
+\author[Befeng：befeng@outlook.com] % (optional, for multiple authors)
+{开发者：碧风 \inst{1} \\ \texttt{befeng@outlook.com} }
+\institute[西南石油大学] % (optional)
+{
+  \inst{1}%
+ 理学院，成都校区
+}
+\date{2015.05}
+\begin{frame}[plain]\label{f1}
+\titlepage
+\end{frame}
+%--------------contents-------------------------------
+\begin{frame}\frametitle{目 录}\framesubtitle{Contents}
+%%% 目录比较长时，使用multicols环境，如果目录比较少则可以去掉multicols，目录一列显示
+%\begin{multicols}{2}
+\tableofcontents
+%\end{multicols}
+\end{frame}
+%%%在每一个section 前显示目录
+\AtBeginSection[] {
+  \frame<handout:0> {
+    \frametitle{Outline}
+    %\begin{multicols}{2}
+    \tableofcontents[currentsection]
+    %\end{multicols}
+  }
+}
+
+\section{前言}
+
+\begin{frame}\frametitle{关于本Beamer}
+基础模板（Basic Templates）：
+\begin{itemize}
+  \item 武汉大学 whu-beamer
+  \item 香港理工大学PolyU-Beamer-Theme-master
+  \item \LaTeX~ beamer Inner Theme
+\end{itemize}
+感谢(Acknowledge)：
+\begin{itemize}
+  \item 黄正华老师
+  \item 香港理工大学计算机系Beamer模板开发老师
+  \item 理学院闵超老师
+\end{itemize}
+\end{frame}
+%-----------------------------------
+\begin{frame}\frametitle{适用说明}
+基础知识:
+\begin{itemize}
+  \item 了解或学过\LaTeX 文档编程语言
+  \item 高质量的演示文档，还需具备较好的图片处理能力
+\end{itemize}
+\pause
+适用对象：
+\begin{itemize}
+  \item 学术会议宣讲
+  \item 毕业论文答辩
+  \item 项目结题答辩
+  \item 数学公式较多的PPT
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Beamer 的优缺点}
+优点：
+\begin{itemize}
+  \item 关注内容，格式由模板决定
+  \item 编辑速度快
+  \item 结果美观
+\end{itemize}
+\pause
+缺点：
+\begin{itemize}
+  \item 入门学习不像MS Offcie 般简单
+  \item 开发一个模板难度较大
+\end{itemize}
+\end{frame}
+\section{一些例子}
+\begin{frame}
+\frametitle{数学的定理和证明}
+\begin{theorem}
+There is no largest prime number.
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item<1-| alert@1> Suppose $p$ were the largest prime number.
+\item<2-> Let $q$ be the product of the first $p$ numbers.
+\item<3-> Then $q+1$ is not divisible by any of them.
+\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
+number not in the first $p$ numbers.\qedhere
+\end{enumerate}
+\end{proof}
+\end{frame}
+%-----------------------------------
+\begin{frame}
+\begin{itemize}\frametitle{逐行显示}
+\item <+-| alert@+> Every thing
+\item <+-| alert@+> that has
+\item <+-| alert@+> beginning
+\item <+-| alert@+> has end.
+\end{itemize}
+最重要的就是\alert{這一點}。
+
+{\color{green}{綠色的文字}}, 其他正常。
+\end{frame}
+
+\begin{frame}\frametitle{重点强调}
+\begin{block}{小重點}
+重點就是重點。
+\end{block}
+\begin{alertblock}{大重點}
+特別重要的東西。
+\end{alertblock}
+\end{frame}
+
+%-------------------------------------
+\begin{frame}[fragile]
+\frametitle{An Algorithm For Finding Primes Numbers.}
+\begin{semiverbatim}
+\uncover<1->{\alert<0>{int main (void)}}
+\uncover<1->{\alert<0>{\{}}
+\uncover<1->{\alert<1>{ \alert<4>{std::}vector<bool> is_prime (100, true);}}
+\uncover<1->{\alert<1>{ for (int i = 2; i < 100; i++)}}
+\uncover<2->{\alert<2>{ if (is_prime[i])}}
+\uncover<2->{\alert<0>{ \{}}
+\uncover<3->{\alert<3>{ \alert<4>{std::}cout << i << " ";}}
+\uncover<3->{\alert<3>{ for (int j = i; j < 100;}}
+\uncover<3->{\alert<3>{ is_prime [j] = false, j+=i);}}
+\uncover<2->{\alert<0>{ \}}}
+\uncover<1->{\alert<0>{ return 0;}}
+\uncover<1->{\alert<0>{\}}}
+\end{semiverbatim}
+\visible<4->{Note the use of \alert{\texttt{std::}}.}
+\end{frame}
+
+\section{参考文献}
+%---------------------------------------------------------------------------------------------------
+\begin{frame}
+\begin{block}{Open Questions}
+Is every even number the sum of two primes?
+\cite{VariablePrecision}
+\end{block}
+\end{frame}
+%--------------------------------------------
+\begin{frame}
+\begin{thebibliography}{10}
+\bibitem{VariablePrecision}
+W.~Ziarko.
+\newblock Variable precision rough set model.
+\newblock {\em Journal of Computer and System Sciences}, 46:39--59, 1993.
+
+\bibitem{Katzberg1996ExtensionOfVPRS}
+J.~D. Katzberg and W.~Ziarko.
+\newblock Variable precision extension of rough sets.
+\newblock {\em Fundamenta Informaticae}, 27:155--168, 1996.
+\end{thebibliography}
+\end{frame}
+
+\subsection*{Thanks}
+
+\begin{frame}
+\begin{columns}
+ \column{0.5\textwidth}
+\begin{figure}
+  \centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[height=0.5\textwidth]{my.jpg}
+  %\caption{my}\label{fig_01}
+\end{figure}
+\column{0.5\textwidth}
+This is me
+\\
+Any problem please contact  me:
+\begin{itemize}
+  \item yueyongpeng@outlook.com
+  \item befeng@outlook.com
+\end{itemize}
+Click \hyperlink{f1}{\beamergotobutton{here}} back to title page
+\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{CJK*}
+\end{document}
